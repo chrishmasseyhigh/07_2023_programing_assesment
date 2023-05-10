@@ -67,13 +67,10 @@ def instructions():
 
 # **** main routine ****
 
-# creats a list for yes and no answers
-yes_no_list=["yes","y","no","n"] 
-
 #loop for testing
 while True:
     #asks if user wants to see the instructions
-    instruction =string_checker("Do you want to see the instructions? ",1,yes_no_list)
+    instruction =string_checker("Do you want to see the instructions? ",1,["yes","no"] )
 
     # prints instuctions is the answer is yes
     if instruction == "yes":
