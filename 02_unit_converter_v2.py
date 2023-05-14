@@ -53,7 +53,10 @@ def metric_unit_converter(amount,input_unit,standard_unit):
     # convert base amount to standard unit g and ml
     base_amount= amount*conversion_factors[input_unit]
     
+    # gets converted amount
     converted_amount = base_amount / conversion_factors[standard_unit]
+    
+    #returns converted amount
     return converted_amount
 
 #main routine
@@ -61,13 +64,10 @@ def metric_unit_converter(amount,input_unit,standard_unit):
 input_unit = string_checker("What unit are you using? ",1,["kg","g","ml","l"])
 
 #gets the amount of the unit
-amount = num_check("how much of this unit are you using? ","The amount must be a whole number !!more than zero!!\n",int)
+amount = num_check("How much of this unit are you using? ","The amount must be a whole number !!more than zero!!\n",int)
 
-# sets the standard unit based on the input
-if input_unit =="kg" or "g":
-    standard_unit = "g"
-else:
-    standard_unit ="ml"
+# Sets the standard unit based on the input
+standard_unit = "g" if input_unit in ["kg", "g"] else "ml"
 
 #convert input uint into the standard unit
 converted_amount = metric_unit_converter(amount,input_unit,standard_unit)
