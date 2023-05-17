@@ -37,16 +37,21 @@ def not_blank(question,error):
         else:
             return response
 
-# Function to check if the input matches any of the valid responses
-def string_checker(question, num_letters, valid_response):
-    error = "Please choose " + ", ".join(valid_response[:-1]) + " or " + valid_response[-1]
-    while True:
-        response = input(question).lower().strip()
-        for item in valid_response:
-            if response == item[:num_letters] or response == item:
-                return item
-        print(error)
 
+def string_checker(question,num_letters,valid_response):
+    error = "Please choose "
+    for item in valid_response[:-1]:
+        error += item
+        error += " "    
+    error += "or "
+    error += valid_response[-1]
+    while True:
+        response=input(question).lower().strip() 
+        for item in valid_response:
+            if response == item[:num_letters] or response== item:
+                return item 
+        print(error)
+ 
 # metric unit converting funtion(standard unit of g and ml)
 def metric_unit_converter(amount,input_unit,standard_unit):
 
