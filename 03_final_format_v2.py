@@ -1,6 +1,6 @@
 import pandas as pd
 
-# lists for testing
+# Lists for testing
 amount_1_list = [166, 40, 5, 2, 1, 3, 4]
 unit_1_list = ["g", "g", "g", "g", "g", "g", "g"]
 ingredient_list = ["Chickpeas", "Onion", "Parsley", "Cumin", "Ground Coriander", "Salt", "Chickpeas"]
@@ -9,7 +9,7 @@ amount_2_list = [500, 1000, 8, 30, 30, 1000, 1000]
 unit_2_list = ["g", "g", "g", "g", "g", "g", "g"]
 cost_to_make_list = [1.23, 0.10, 3.13, 0.13, 0.08, 0.00, 0.04]
 
-#dictionarys to format data
+# Dictionaries to format data
 recipe_amount_dict = {
     "amount": amount_1_list,
     "ingredients": ingredient_list,
@@ -23,34 +23,45 @@ recipe_cost_dict = {
     "cost to make": cost_to_make_list
 }
 
-# uses pandas to make a dataframe
+# Uses pandas to create dataframes
 recipe_cost_frame = pd.DataFrame(recipe_cost_dict)
 recipe_amount_frame = pd.DataFrame(recipe_amount_dict)
 
-#sets name of file for testing
-recipe_name = "boiled eggs"
+# Remove the index column from the dataframes
+recipe_cost_frame = recipe_cost_frame.reset_index(drop=True)
+recipe_amount_frame = recipe_amount_frame.reset_index(drop=True)
 
-# converts dataframes to txt file
-recipe_cost_txt = recipe_cost_frame.to_string()
-recipe_amount_txt = recipe_amount_frame.to_string()
+# Sets the name of the recipe and serving size
+recipe_name = "dog_food"
+serving_size = "2.5"
 
-# puts all files in a list for writing to file
-to_write = [recipe_cost_frame, recipe_amount_frame]
+# Sets headings
+recipe_heading = f"************** {recipe_name} **************"
+list_1_heading = "Recipe Ingredients"
+list_2_heading = "Ingredient Price"
 
-# write to file
-# create file to hold data (add .txt extension)
+# Converts dataframes to string
+recipe_cost_txt = recipe_cost_frame.to_string(index=False)
+recipe_amount_txt = recipe_amount_frame.to_string(index=False)
+
+# Puts all files in a list for writing to the file
+to_write = [recipe_heading, list_1_heading, recipe_amount_txt, list_2_heading, recipe_cost_txt]
+
+# Write to file
+# Create file to hold data (add .txt extension)
 file_name = "{}.txt".format(recipe_name)
 text_file = open(file_name, 'w+')
 
-# heading
+# Heading
 for item in to_write:
-    text_file.write(item.to_string())
+    text_file.write(item)
     text_file.write("\n\n")
 
-# close file
+# Close the file
 text_file.close()
 
-# print stuff
+# Print the contents of the files
 for item in to_write:
     print(item)
     print()
+
