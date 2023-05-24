@@ -37,6 +37,7 @@ print(recipe_cost_frame)
 unit = "g"
 recipe_name = "boiled eggs"
 
+
 recipe_cost_txt = pd.DataFrame.to_string(recipe_cost_frame)
 recipe_amount_txt = pd.DataFrame.to_string(recipe_amount_frame)
 

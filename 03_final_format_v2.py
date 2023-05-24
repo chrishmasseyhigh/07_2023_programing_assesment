@@ -1,3 +1,4 @@
+# imports pandas to make dataframes
 import pandas as pd
 
 # Lists for testing
@@ -33,19 +34,26 @@ recipe_amount_frame = recipe_amount_frame.reset_index(drop=True)
 
 # Sets the name of the recipe and serving size
 recipe_name = "dog_food"
-serving_size = "2.5"
+servings = 2.5
+serving_size = "Servings: 2.5"
 
 # Sets headings
 recipe_heading = f"************** {recipe_name} **************"
 list_1_heading = "Recipe Ingredients"
 list_2_heading = "Ingredient Price"
 
+# Totals for testing
+total = 4.71
+total_heading = f"Total: ${total}"
+per_serve_heading = f"Per Serve: ${total/servings}"
+
 # Converts dataframes to string
 recipe_cost_txt = recipe_cost_frame.to_string(index=False)
 recipe_amount_txt = recipe_amount_frame.to_string(index=False)
 
 # Puts all files in a list for writing to the file
-to_write = [recipe_heading, list_1_heading, recipe_amount_txt, list_2_heading, recipe_cost_txt]
+to_write = [recipe_heading, serving_size, list_1_heading, recipe_amount_txt, 
+            list_2_heading, recipe_cost_txt, total_heading, per_serve_heading]
 
 # Write to file
 # Create file to hold data (add .txt extension)
