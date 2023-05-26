@@ -28,10 +28,6 @@ recipe_cost_dict = {
 recipe_cost_frame = pd.DataFrame(recipe_cost_dict)
 recipe_amount_frame = pd.DataFrame(recipe_amount_dict)
 
-# Remove the index column from the dataframes
-recipe_cost_frame = recipe_cost_frame.reset_index(drop=True)
-recipe_amount_frame = recipe_amount_frame.reset_index(drop=True)
-
 # Sets the name of the recipe and serving size
 recipe_name = "dog_food"
 servings = 2.5

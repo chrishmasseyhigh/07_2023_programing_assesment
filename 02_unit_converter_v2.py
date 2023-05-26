@@ -42,7 +42,6 @@ def string_checker(question, num_letters, valid_response):
     # Create the error message by joining the valid responses
     error = f"Please choose {', '.join(valid_response[:-1])} or {valid_response[-1]}"
 
-    
     # Repeat the loop until a valid response is entered
     while True:
         # Get user input, convert to lowercase, and remove leading/trailing whitespace
