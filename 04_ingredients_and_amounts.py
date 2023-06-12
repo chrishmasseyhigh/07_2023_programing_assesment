@@ -86,34 +86,33 @@ def metric_unit_converter(amount,input_unit,standard_unit):
     #returns converted amount
     return converted_amount
 
-
-def servings_and_recipes(var_fixed):
+#gets amount unit and ingreadeant name
+def servings_and_recipes():
     # Sets up dictionaries and lists
     amount_1_list = []
     unit_1_list = []
     ingredient_list = []
     
-    # Dictionaries to format data
-    recipe_amount_dict = {
-        "amount": amount_1_list,
-        "ingredients": ingredient_list,
-        "units": unit_1_list
-    }
-    
     # Loop to get component, quantity, and price  
     x = 0
     print()
     
+    #gets ingredeant name and amount
     ingredient_name = not_blank("Ingredient name: ", "The ingredient name must not be blank.")
     print()
     amount = num_check("How much of this ingredient do you have? ", "Please enter a number greater than zero.", float)
    
+   #loops to make sure user gets the right unit
     while x == 0:
+        #asks user for unit
         unit_1 = string_checker("What unit are you using for this amount? ", 1, unit_variables_list)
         
+        # if the unit is valid
         if unit_1 in unit_variables_list:
             # Sets the standard unit based on the input
             break
+        
+        # if the unit is invalid
         else:
             print("Please enter the units kg, g, L, or ml.")
             continue
@@ -142,6 +141,7 @@ ingredient_list = []
 servings = 2.5
 
 while True:
+    
     # activates funtion and oututs amount unit and ingertant lists
     amount, unit, ingredient = servings_and_recipes(servings)
     
@@ -150,11 +150,13 @@ while True:
     unit_1_list.extend(unit)
     ingredient_list.extend(ingredient)
     
+
     #asks user if they want to quit
     quit_input = input("Enter xxx to quit: ")
 
     if quit_input == 'xxx':
         break
+
 
 #prints lists for testing
 print(amount_list)
