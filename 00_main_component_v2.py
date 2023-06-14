@@ -1,4 +1,4 @@
-import math
+
 # imports pandas to make dataframes
 import pandas as pd
 
@@ -115,9 +115,9 @@ def ingredients_and_amounts():
     print()
     
     #gets ingredeant name and amount
-    ingredient_name = not_blank("Ingredient name: ", "The ingredient name must not be blank.")
+    ingredient_name = not_blank("Ingredient name: ", "The ingredient name must not be blank. \n")
     print()
-    amount = num_check("How much of this ingredient do you have? ", "Please enter a number greater than zero.", float)
+    amount = num_check("How much of this ingredient do you have? ", "Please enter a number greater than zero. \n", float)
    
    #loops to make sure user gets the right unit
     while True:
@@ -131,7 +131,7 @@ def ingredients_and_amounts():
         
         # if the unit is invalid
         else:
-            print("Please enter the units kg, g, L, or ml.")
+            print("Please enter the units kg, g, L, or ml. \n")
             continue
 
     # Sets the standard unit based on the input
@@ -149,17 +149,22 @@ def ingredients_and_amounts():
 
 # gets the cost and amount that you get for this cost
 def amounts_and_costs():
+
     # Sets up lists
     price_func_list = []
     amount_func_2_list = []
     unit_func_2_list = []
-    # Loop to get component, quantity, and price
+    
+    
+    # Loops to get component, quantity, and price
     print()
-    # Get bulk price
-    price_1 = num_check("What is the bulk price of this ingredient? $ ", "Please enter a number greater than zero.", float)
+    # Gets bulk price
+    price_1 = num_check("What is the bulk price of this ingredient? $ ", "Please enter a number greater than zero. \n", float)
     print()
-    # Get amount
-    amount = num_check("How much of this ingredient do you get for this bulk price? ", "Please enter a number greater than zero.", float)
+    
+    # Gets the amount
+    amount = num_check("How much of this ingredient do you get for this bulk price? ", "Please enter a number greater than zero. \n", float)
+    
     # Loop to make sure user gets the right unit
     while True:
         unit_1 = string_checker("What unit are you using for this amount? ", 1, unit_variables_list)
@@ -167,7 +172,7 @@ def amounts_and_costs():
             # Sets the standard unit based on the input
             break
         else:
-            print("Please enter the units kg, g, L, or ml.")
+            print("Please enter the units kg, g, L, or ml. \n")
             continue
 
     # Sets the standard unit based on the input
@@ -202,8 +207,13 @@ loop = 0
 total=0
 amounts_and_costs_loop =0
 
+# start of the program
+print("********* Wellcome to the recipe cost calculator *********")
+print()
+
 #asks if user wants to see the instructions
 instruction =string_checker("Do you want to see the instructions? ",1,["yes","no"] )
+print()
 
 # prints instuctions is the answer is yes
 if instruction == "yes":
@@ -211,10 +221,14 @@ if instruction == "yes":
 
 # gets recipe name for printing and naming of file
 recipe_name = not_blank("What is the name of the recipe? ","!!This answer can not be blank!!")
+print()
 
 # get the amount of servings made from the recipe
 servings_amount = num_check("How many servings will this recipe have when made? ","please enter a number more than zero",float)
 
+# signils to the user that they now need to input ingredients and amounts
+print()
+print("**************** [Ingredients and amounts] ****************")
 
 # loops until all varibles are gathered
 while True:
@@ -233,8 +247,22 @@ while True:
     if quit_input == 'xxx':
         break
 
+# seperates the two diffrent loops
+print()
+print("**************** [Bulk prices] ****************")
+print()
+
+
 # loops until all varibles have been gathered
 while True:
+    
+    # gets the ingredent and formats it into a intrduction for each loop to tell the user what ingrent the prices are for
+    bulk_price_ingredint = ingredient_list[amounts_and_costs_loop]
+    Introduction_for_bulk_prices =f'***** Bulk price for [{bulk_price_ingredint}] *****'
+    
+    #prints the introduction for bulk prices
+    print(Introduction_for_bulk_prices)
+
     # Activate function and output amount, unit, and ingredient lists
     price, amount, unit = amounts_and_costs()
 
