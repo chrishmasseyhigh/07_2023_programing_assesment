@@ -38,7 +38,7 @@ def not_blank(question,error):
 
         if response == "":
             print()
-            print("{}. \n Please try again. \n".format(error))
+            print("{}. \n \033[38;5;160m Please try again. \n".format(error))
             print()
 
         else:
@@ -47,7 +47,7 @@ def not_blank(question,error):
 # Function to check if the input matches any of the valid responses
 def string_checker(question, num_letters, valid_response):
     # Create the error message by joining the valid responses
-    error = f"Please choose {', '.join(valid_response[:-1])} or {valid_response[-1]}"
+    error = f"\033[38;5;160m Please choose {', '.join(valid_response[:-1])} or {valid_response[-1]} \n"
 
     
     # Repeat the loop until a valid response is entered
@@ -115,15 +115,15 @@ def ingredients_and_amounts():
     print()
     
     #gets ingredeant name and amount
-    ingredient_name = not_blank("Ingredient name: ", "The ingredient name must not be blank. \n")
+    ingredient_name = not_blank("\033[0;37;40mIngredient name: ", "\033[38;5;160m!!The ingredient name must not be blank!!. \n")
     print()
-    amount = num_check("How much of this ingredient do you have? ", "Please enter a number greater than zero. \n", float)
+    amount = num_check("\033[0;37;40mHow much of this ingredient do you have? ", "\033[38;5;160m Please enter a number greater than zero. \n", float)
     print()
 
    #loops to make sure user gets the right unit
     while True:
         #asks user for unit
-        unit_1 = string_checker("What unit are you using for this amount? ", 1, unit_variables_list)
+        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount? ", 1, unit_variables_list)
         
         # if the unit is valid
         if unit_1 in unit_variables_list:
@@ -132,7 +132,7 @@ def ingredients_and_amounts():
         
         # if the unit is invalid
         else:
-            print("Please enter the units kg, g, L, or ml. \n")
+            print("\033[38;5;160mPlease enter the units kg, g, L, or ml. \n")
             continue
 
     # Sets the standard unit based on the input
@@ -160,21 +160,21 @@ def amounts_and_costs():
     # Loops to get component, quantity, and price
     print()
     # Gets bulk price
-    price_1 = num_check("What is the bulk price of this ingredient? $ ", "Please enter a number greater than zero. \n", float)
+    price_1 = num_check("\033[0;37;40mWhat is the bulk price of this ingredient? $ ", "\033[38;5;160m Please enter a number greater than zero. \n", float)
     print()
     
     # Gets the amount
-    amount = num_check("How much of this ingredient do you get for this bulk price? ", "Please enter a number greater than zero. \n", float)
+    amount = num_check("\033[0;37;40mHow much of this ingredient do you get for this bulk price? ", "\033[38;5;160m Please enter a number greater than zero. \n", float)
     print()
 
     # Loop to make sure user gets the right unit
     while True:
-        unit_1 = string_checker("What unit are you using for this amount? ", 1, unit_variables_list)
+        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount? ", 1, unit_variables_list)
         if unit_1 in unit_variables_list:
             # Sets the standard unit based on the input
             break
         else:
-            print("Please enter the units kg, g, L, or ml. \n")
+            print("\033[38;5;160mPlease enter the units kg, g, L, or ml. \n")
             continue
 
     # Sets the standard unit based on the input
@@ -214,7 +214,7 @@ print("********* Wellcome to the recipe cost calculator *********")
 print()
 
 #asks if user wants to see the instructions
-instruction =string_checker("Do you want to see the instructions? ",1,["yes","no"] )
+instruction =string_checker("\033[0;37;40m Do you want to see the instructions? ",1,["yes","no"] )
 print()
 
 # prints instuctions is the answer is yes
@@ -222,11 +222,11 @@ if instruction == "yes":
     instructions()
 
 # gets recipe name for printing and naming of file
-recipe_name = not_blank("What is the name of the recipe? ","!!This answer can not be blank!!")
+recipe_name = not_blank("\033[0;37;40m What is the name of the recipe? ","\033[38;5;160m !!This answer can not be blank!!")
 print()
 
 # get the amount of servings made from the recipe
-servings_amount = num_check("How many servings will this recipe have when made? ","please enter a number more than zero",float)
+servings_amount = num_check("\033[0;37;40m  How many servings will this recipe have when made? ","\033[38;5;160m please enter a number more than zero",float)
 
 # signils to the user that they now need to input ingredients and amounts
 print()
