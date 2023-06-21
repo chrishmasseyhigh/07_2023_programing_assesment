@@ -81,9 +81,10 @@ def instructions():
     
     print()
 
-    print('''\n
-    **** Instructions *****
-
+    print('''\n\033[38;5;45m
+    
+    <********* [Instructions] *********>
+    \033[38;5;39m
     This program will ask you for...
     - The amount of ingredents you plan to use and ask for units for that amount
     - The name of the ingerdents
@@ -100,7 +101,7 @@ def instructions():
             The data will also be written to a text file which
             has the same name as your dish and the date.
 
-    **** Program launched! ****''')
+    ''')
 
     return""
 
@@ -210,7 +211,7 @@ total=0
 amounts_and_costs_loop =0
 
 # start of the program
-print("********* Wellcome to the recipe cost calculator *********")
+print("\033[38;5;81m********* Wellcome to the recipe cost calculator *********")
 print()
 
 #asks if user wants to see the instructions
@@ -230,7 +231,7 @@ servings_amount = num_check("\033[0;37;40m  How many servings will this recipe h
 
 # signils to the user that they now need to input ingredients and amounts
 print()
-print("**************** [Ingredients and amounts] ****************")
+print("\033[38;5;81m**************** [Ingredients and amounts] ****************")
 
 # loops until all varibles are gathered
 while True:
@@ -252,7 +253,7 @@ while True:
 
 # seperates the two diffrent loops
 print()
-print("**************** [Bulk prices] ****************")
+print("\033[38;5;81m**************** [Bulk prices] ****************")
 print()
 
 
@@ -261,7 +262,7 @@ while True:
     
     # gets the ingredent and formats it into a intrduction for each loop to tell the user what ingrent the prices are for
     bulk_price_ingredint = ingredient_list[amounts_and_costs_loop]
-    Introduction_for_bulk_prices =f'***** Bulk price for [{bulk_price_ingredint}] *****'
+    Introduction_for_bulk_prices =f'\033[0;37;40m***** Bulk price for [{bulk_price_ingredint}] *****'
     
     #prints the introduction for bulk prices
     print(Introduction_for_bulk_prices)
