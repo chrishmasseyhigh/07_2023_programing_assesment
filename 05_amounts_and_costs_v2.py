@@ -85,8 +85,8 @@ def metric_unit_converter(amount, input_unit, standard_unit):
     # Return converted amount rounded to 3 dp
     return round(converted_amount, 3)
 
-# Fix the servings_and_recipes function
-def servings_and_recipes():
+# gets the cost and amount that you get for this cost
+def amounts_and_costs():
     # Sets up lists
     price_func_list = []
     amount_func_2_list = []
@@ -131,13 +131,13 @@ cost_list = []
 
 # Sets serving for testing
 servings = 2.5
-index = 0
 loop = 0
 total=0
 
+# loops untill all varibles have been gathered
 while True:
     # Activate function and output amount, unit, and ingredient lists
-    price, amount, unit = servings_and_recipes()
+    price, amount, unit = amounts_and_costs()
 
     # Puts all the information into lists
     price_list.extend(price)

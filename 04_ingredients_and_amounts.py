@@ -87,7 +87,7 @@ def metric_unit_converter(amount,input_unit,standard_unit):
     return converted_amount
 
 #gets amount unit and ingreadeant name
-def servings_and_recipes():
+def ingredients_and_amounts():
     # Sets up dictionaries and lists
     amount_1_list = []
     unit_1_list = []
@@ -140,10 +140,11 @@ ingredient_list = []
 # Sets serving for testing
 servings = 2.5
 
+# loops until all varibles are gathered
 while True:
     
     # activates funtion and oututs amount unit and ingertant lists
-    amount, unit, ingredient = servings_and_recipes(servings)
+    amount, unit, ingredient = ingredients_and_amounts(servings)
     
     # puts all the information into lists
     amount_list.extend(amount)
