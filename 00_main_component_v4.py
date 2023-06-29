@@ -2,15 +2,19 @@
 import pandas as pd
 import importlib
 
-# Sets up unit list
-unit_variables_list = ["kg", "g", "l", "ml"]
+# sets up unit list
+unit_variables_list = ["kg", "g", "l", "ml","cups","half cups","teaspoon","tablespoon"]
 
-# Dictionary to store units and their conversion factor
+# dictionary to store unitcs and their conversion factor
 conversion_factors ={
     "kg" :1000,  
     "g":1,
     "ml":1,
     "l":1000,
+    "cups":240 ,
+    "half cups": 170,
+    "teaspoon":4.2 ,
+    "tablespoon":21.25
 }
 
 # Imports all functions

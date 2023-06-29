@@ -1,5 +1,5 @@
 # sets up unit list
-unit_variables_list = ["kg", "g", "l", "ml"]
+unit_variables_list = ["kg", "g", "l", "ml","cups","half cups","teaspoon","tablespoon"]
 
 # dictionary to store unitcs and their conversion factor
 conversion_factors ={
@@ -7,14 +7,16 @@ conversion_factors ={
     "g":1,
     "ml":1,
     "l":1000,
+    "cups":240 ,
+    "half cups": 170,
+    "teaspoon":4.2 ,
+    "tablespoon":21.25
 }
 
 # Displays instructions, returns ""
 def instructions():
     
-    print()
-
-    print('''\n
+    print('''\n\033[0;36m
     **** Instructions *****
 
     This program will ask you for...
@@ -34,7 +36,8 @@ def instructions():
             has the same name as your dish and the date.
 
     **** Program launched! ****''')
-
+    print()
+    
     return""
 
 # checks that input is float or int that is more than 0 (custom error message)           
@@ -132,7 +135,7 @@ def ingredients_and_amounts():
             continue
 
     # Sets the standard unit based on the input
-    standard_unit = "g" if unit_1 in ["kg", "g"] else "ml"
+    standard_unit = "ml" if unit_1 in ["ml", "l"] else "g"
 
     # converts amounts based on the unit    
     converted_unit_1=metric_unit_converter(amount,unit_1,standard_unit)
@@ -174,7 +177,7 @@ def amounts_and_costs():
             continue
 
     # Sets the standard unit based on the input
-    standard_unit = "g" if unit_1 in ["kg", "g"] else "ml"
+    standard_unit = "ml" if unit_1 in ["ml", "l"] else "g"
 
     # Convert unit and amount into standard unit and amount
     converted_unit_1 = metric_unit_converter(amount, unit_1, standard_unit)
