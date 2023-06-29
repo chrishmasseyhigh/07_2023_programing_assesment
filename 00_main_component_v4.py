@@ -133,7 +133,6 @@ while True:
         # Breaks loop
         break
 
-
 # ************ [write to file] ************
 
 # Dictionaries to format data
@@ -157,10 +156,16 @@ recipe_amount_frame = pd.DataFrame(recipe_amount_dict)
 # Sets the name of the recipe and serving size
 serving_size = f'Servings: {servings_amount}'
 
-# Sets headings
+# Sets main headings
 recipe_heading = f"************** {recipe_name} **************"
-list_1_heading = "Recipe Ingredients"
-list_2_heading = "Ingredient Price"
+
+list_1_heading = "{ Recipe Ingredients }"
+list_2_heading = "{ Ingredient Price }"
+
+# sets headings for recipe lists and totals
+recipe_list_heading ="*********** [Recipe lists] ***********"
+
+all_totals_heading ="*********** [Totals] ***********"
 
 # Totals for testing
 total_heading = f"Total: ${round(total,2)}"
@@ -171,8 +176,8 @@ recipe_cost_txt = recipe_cost_frame.to_string(index=False)
 recipe_amount_txt = recipe_amount_frame.to_string(index=False)
 
 # Puts all files in a list for writing to the file
-to_write = [recipe_heading, serving_size, list_1_heading, recipe_amount_txt, 
-            list_2_heading, recipe_cost_txt, total_heading, per_serve_heading]
+to_write = [recipe_heading, serving_size,recipe_list_heading, list_1_heading, recipe_amount_txt, 
+            list_2_heading, recipe_cost_txt,all_totals_heading, total_heading, per_serve_heading]
 
 # Write to file
 # Create file to hold data (add .txt extension)
