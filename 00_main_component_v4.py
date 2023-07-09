@@ -1,25 +1,8 @@
 # Imports pandas to make dataframes
 import pandas as pd
-import importlib
-
-# sets up unit list
-unit_variables_list = ["kg", "g", "l", "ml","cups","half cups","teaspoon","tablespoon"]
-
-# dictionary to store unitcs and their conversion factor
-conversion_factors ={
-    "kg" :1000,  
-    "g":1,
-    "ml":1,
-    "l":1000,
-    "cups":240 ,
-    "half cups": 170,
-    "teaspoon":4.2 ,
-    "tablespoon":21.25
-}
 
 # Imports all functions
 from all_functions import instructions
-from all_functions import metric_unit_converter
 from all_functions import ingredients_and_amounts
 from all_functions import not_blank
 from all_functions import num_check
@@ -43,6 +26,7 @@ cost_list = []
 loop = 0
 total=0
 amounts_and_costs_loop =0
+ingredient_name ="xxx"
 
 # Start of the program
 print("\033[38;5;81m********* Wellcome to the recipe cost calculator *********")
@@ -70,20 +54,28 @@ print("\033[38;5;81m**************** [Ingredients and amounts] ****************"
 # Gets ingredeant names and amounts
 while True:
     
+    # Loops to get ingredient names
+    while True:
+        print()
+        ingredient_name = not_blank("\033[0;37;40mIngredient name(\033[38;5;81m !!xxx if you have finished inputting ingredients!! \033[0;37;40m): ", "\033[38;5;160m!!The ingredient name must not be blank!!. \n")
+
+        if len(ingredient_list) < 1 and ingredient_name == "xxx":
+            print("\033[38;5;160m!!You cannot quit while no ingredients have been entered!!")
+        else:
+            break
+        
+    # Breaks if more or equal to 1 ingredients have been inputed and xxx is entered
+    if len(ingredient_list)>=1 and ingredient_name == "xxx":
+        break
+    
     # Activates funtion and oututs amount unit and ingertant lists
-    amount, unit, ingredient = ingredients_and_amounts()
+    amount, unit= ingredients_and_amounts()
     
     # Puts all the information into lists
     amount_list.extend(amount)
     unit_list.extend(unit)
-    ingredient_list.extend(ingredient)
-    
-    # Asks user if they want to quit
-    print()
-    quit_input = input("Enter 'xxx' if you have finished entering your ingredients: ")
-
-    if quit_input == 'xxx':
-        break
+    ingredient_list.append(ingredient_name)
+ 
 
 # Bulk price heading
 print()
@@ -143,6 +135,7 @@ recipe_amount_dict = {
 }
 
 recipe_cost_dict = {
+    "ingredient": ingredient_list,
     "price": price_list,
     "amount": amount_2_list,
     "units": unit_2_list,

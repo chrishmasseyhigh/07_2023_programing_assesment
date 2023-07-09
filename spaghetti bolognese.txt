@@ -1,0 +1,30 @@
+************** spaghetti bolognese **************
+
+Servings: 5.0
+
+Recipe Ingredients
+
+ amount units  ingredient
+ 1440.0     g       flour
+   73.0     g        eggs
+   12.6     g   olive oil
+ 1500.0     g ground beff
+  750.0    ml        milk
+    8.0     g        salt
+  170.0     g      chesse
+
+Ingredient Price
+
+ price  amount units  cost
+  9.00  3000.0     g  4.32
+  6.42   438.0     g  1.07
+  5.00   250.0    ml  0.25
+  8.00  2000.0     g  6.00
+  6.25  1500.0    ml  3.12
+  2.34    40.0     g  0.47
+ 12.49  1000.0     g  2.12
+
+Total: $17.36
+
+Per Serve: $3.47
+

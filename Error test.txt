@@ -1,0 +1,22 @@
+************** Error test **************
+
+Servings: 0.1
+
+*********** [Recipe lists] ***********
+
+{ Recipe Ingredients }
+
+ amount units ingredient
+ 2500.0     g      flour
+
+{ Ingredient Price }
+
+ingredient  price  amount units  cost
+     flour    4.2  2500.0     g   4.2
+
+*********** [Totals] ***********
+
+Total: $4.2
+
+Per Serve: $42.0
+
