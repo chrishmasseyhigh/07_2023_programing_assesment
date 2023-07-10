@@ -1,5 +1,5 @@
 # List that provides units and is critial to these components working so must be placed above functions(like a import eg import pandas)
-unit_variables_list = ["kg", "g", "l", "ml","cups","half cups","teaspoon","tablespoon","no unit"]
+unit_variables_list = ["kg", "g", "l", "ml","cups","half cups","teaspoon","tablespoon",""]
 
 # ***** fuctions *****
 
@@ -101,7 +101,7 @@ def metric_unit_converter(amount,input_unit,standard_unit):
         "half cups": 170,
         "teaspoon":4.2 ,
         "tablespoon":21.25,
-        "no unit":1
+        "":1
     }
 
     # Converts base amount to standard unit g and ml
@@ -130,7 +130,7 @@ def ingredients_and_amounts():
     # Loops to make sure user gets the right unit
     while True:
         # Asks user for unit
-        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount (enter no unit if you have no units)? ", 1, unit_variables_list)
+        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount (press enter if you have no units)? ", 1, unit_variables_list)
         
         # If the unit is valid
         if unit_1 in unit_variables_list:
@@ -180,7 +180,7 @@ def amounts_and_costs():
 
     # Loops to make sure user gets the right unit
     while True:
-        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount (enter no unit if you have no units)? ", 1, unit_variables_list)
+        unit_1 = string_checker("\033[0;37;40mWhat unit are you using for this amount (press enter if you have no units)? ", 1, unit_variables_list)
         if unit_1 in unit_variables_list:
             # Sets the standard unit based on the input
             break
